@@ -117,7 +117,8 @@ def create(target, module_name):
 	    'opencv/modules/core/include/*',
 	    recursive=True)
 	my_module.add_module_depend([
-	    'cxx'
+	    'cxx',
+	    'pthread'
 	    ])
 	my_module.compile_version("C++", 2003)
 	return my_module
