@@ -96,7 +96,6 @@ def create(target, module_name):
 	    "-Wno-delete-non-virtual-dtor",
 	    "-fdiagnostics-show-option",
 	    "-Wno-long-long",
-	    #"-pthread",
 	    "-fomit-frame-pointer",
 	    "-msse",
 	    "-msse2",
@@ -109,18 +108,10 @@ def create(target, module_name):
 	    "-fvisibility=hidden",
 	    "-fvisibility-inlines-hidden",
 	    ])
-	if target.config["mode"] == "release":
-		my_module.compile_flags('c++', "-DNDEBUG")
-	else:
-		my_module.compile_flags('c++', "-DDEBUG")
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "opencv", "modules", "imgproc", "src"))
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "opencv", "modules", "imgproc"))
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "opencv"))
 	my_module.add_header_file(
 	    "opencv/modules/imgproc/include/*",
 	    recursive=True)
 	my_module.add_module_depend([
-	    'cxx',
 	    'opencv-core'
 	    ])
 	my_module.compile_version("C++", 2003)
