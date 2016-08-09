@@ -116,7 +116,10 @@ def create(target, module_name):
 	    'cxx',
 	    ])
 	my_module.compile_version("C++", 2003)
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "generated"))
+	my_module.add_header_file([
+		'generated/*'
+		],
+		destination_path="")
 	# generate dynamic file
 	generate_config_file(my_module)
 	return my_module
