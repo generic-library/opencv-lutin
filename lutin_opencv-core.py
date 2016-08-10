@@ -84,7 +84,6 @@ def create(target, module_name):
 	    "-Wformat",
 	    "-Werror=format-security",
 	    "-Wmissing-declarations",
-	    "-Wundef",
 	    "-Winit-self",
 	    "-Wpointer-arith",
 	    "-Wshadow",
@@ -93,15 +92,7 @@ def create(target, module_name):
 	    "-Wno-delete-non-virtual-dtor",
 	    "-fdiagnostics-show-option",
 	    "-Wno-long-long",
-	    #"-pthread",
 	    "-fomit-frame-pointer",
-	    "-msse",
-	    "-msse2",
-	    "-mno-avx",
-	    "-msse3",
-	    "-mno-ssse3",
-	    "-mno-sse4.1",
-	    "-mno-sse4.2",
 	    "-ffunction-sections",
 	    "-fvisibility=hidden",
 	    "-fvisibility-inlines-hidden",
@@ -130,20 +121,20 @@ def generate_config_file(my_module):
 	file_data = "/* Auto generate file with lutin */\n"
 	file_data+= "#pragma once\n"
 	file_data+= "\n"
-	#file_data+= "#define HAVE_OPENCV_CALIB3D\n"
+	file_data+= "#define HAVE_OPENCV_CALIB3D\n"
 	file_data+= "#define HAVE_OPENCV_CORE\n"
-	#file_data+= "#define HAVE_OPENCV_FEATURES2D\n"
-	#file_data+= "#define HAVE_OPENCV_FLANN\n"
+	file_data+= "#define HAVE_OPENCV_FEATURES2D\n"
+	file_data+= "#define HAVE_OPENCV_FLANN\n"
 	#file_data+= "#define HAVE_OPENCV_HIGHGUI\n"
 	#file_data+= "#define HAVE_OPENCV_IMGCODECS\n"
 	file_data+= "#define HAVE_OPENCV_IMGPROC\n"
-	#file_data+= "#define HAVE_OPENCV_ML\n"
-	#file_data+= "#define HAVE_OPENCV_OBJDETECT\n"
-	#file_data+= "#define HAVE_OPENCV_PHOTO\n"
-	#file_data+= "#define HAVE_OPENCV_SHAPE\n"
-	#file_data+= "#define HAVE_OPENCV_STITCHING\n"
-	#file_data+= "#define HAVE_OPENCV_SUPERRES\n"
-	#file_data+= "#define HAVE_OPENCV_VIDEO\n"
+	file_data+= "#define HAVE_OPENCV_ML\n"
+	file_data+= "#define HAVE_OPENCV_OBJDETECT\n"
+	file_data+= "#define HAVE_OPENCV_PHOTO\n"
+	file_data+= "#define HAVE_OPENCV_SHAPE\n"
+	file_data+= "#define HAVE_OPENCV_STITCHING\n"
+	file_data+= "#define HAVE_OPENCV_SUPERRES\n"
+	file_data+= "#define HAVE_OPENCV_VIDEO\n"
 	#file_data+= "#define HAVE_OPENCV_VIDEOIO\n"
 	#file_data+= "#define HAVE_OPENCV_VIDEOSTAB\n"
 	file_data+= "\n"

@@ -7,7 +7,7 @@ def get_type():
 	return "LIBRARY"
 
 def get_desc():
-	return "opencv CORE library matrix computation evironement"
+	return "opencv Image processing library"
 
 def get_licence():
 	return "APAPCHE-2"
@@ -87,7 +87,6 @@ def create(target, module_name):
 	    "-Wformat",
 	    "-Werror=format-security",
 	    "-Wmissing-declarations",
-	    "-Wundef",
 	    "-Winit-self",
 	    "-Wpointer-arith",
 	    "-Wshadow",
@@ -97,13 +96,6 @@ def create(target, module_name):
 	    "-fdiagnostics-show-option",
 	    "-Wno-long-long",
 	    "-fomit-frame-pointer",
-	    "-msse",
-	    "-msse2",
-	    "-mno-avx",
-	    "-msse3",
-	    "-mno-ssse3",
-	    "-mno-sse4.1",
-	    "-mno-sse4.2",
 	    "-ffunction-sections",
 	    "-fvisibility=hidden",
 	    "-fvisibility-inlines-hidden",
