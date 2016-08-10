@@ -63,6 +63,8 @@ def create(target, module_name):
 	    'opencv-core',
 	    'opencv-video'
 	    ])
+	if target.name=="Android":
+		my_module.compile_flags('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
 	return my_module
 

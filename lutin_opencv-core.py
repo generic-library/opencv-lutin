@@ -106,6 +106,10 @@ def create(target, module_name):
 	    'z',
 	    'cxx',
 	    ])
+	
+	if target.name=="Android":
+		my_module.add_module_depend("SDK")
+		my_module.compile_flags('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
 	my_module.add_header_file([
 		'generated/*'

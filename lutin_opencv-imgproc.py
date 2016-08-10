@@ -106,6 +106,8 @@ def create(target, module_name):
 	my_module.add_module_depend([
 	    'opencv-core'
 	    ])
+	if target.name=="Android":
+		my_module.compile_flags('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
 	return my_module
 

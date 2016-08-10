@@ -82,6 +82,8 @@ def create(target, module_name):
 	    'opencv-core',
 	    'opencv-features2d',
 	    ])
+	if target.name=="Android":
+		my_module.compile_flags('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
 	return my_module
 
