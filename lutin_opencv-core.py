@@ -71,7 +71,7 @@ def create(target, module_name):
 	    'opencv/modules/core/src/cuda_stream.cpp',
 	    ])
 	
-	my_module.compile_flags('c++', [
+	my_module.add_flag('c++', [
 	    "-DCVAPI_EXPORTS",
 	    "-D__OPENCV_BUILD=1",
 	    "-fsigned-char",
@@ -100,16 +100,16 @@ def create(target, module_name):
 	my_module.add_header_file(
 	    'opencv/modules/core/include/*',
 	    recursive=True)
-	my_module.add_module_depend([
+	my_module.add_depend([
 	    'pthread',
 	    'm',
 	    'z',
 	    'cxx',
 	    ])
 	
-	if target.name=="Android":
-		my_module.add_module_depend("SDK")
-		my_module.compile_flags('c++', "-DANDROID")
+	if "Android" in target.get_type():
+		my_module.add_depend("SDK")
+		my_module.add_flag('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
 	my_module.add_header_file([
 		'generated/*'

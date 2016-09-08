@@ -49,7 +49,7 @@ def create(target, module_name):
 	    'opencv/modules/features2d/src/gftt.cpp',
 	    ])
 	
-	my_module.compile_flags('c++', [
+	my_module.add_flag('c++', [
 	    "-DCVAPI_EXPORTS",
 	    "-D__OPENCV_BUILD=1",
 	    "-fsigned-char",
@@ -78,13 +78,13 @@ def create(target, module_name):
 	my_module.add_header_file(
 	    "opencv/modules/features2d/include/*",
 	    recursive=True)
-	my_module.add_module_depend([
+	my_module.add_depend([
 	    'opencv-core',
 	    'opencv-flann',
 	    'opencv-imgproc',
 	    ])
-	if target.name=="Android":
-		my_module.compile_flags('c++', "-DANDROID")
+	if "Android" in target.get_type():
+		my_module.add_flag('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
 	return my_module
 
