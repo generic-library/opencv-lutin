@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import lutin.module as module
+import lutin.debug as debug
 import lutin.tools as tools
 import os
 
@@ -18,8 +18,7 @@ def get_maintainer():
 def get_version():
 	return [3,1,0]
 
-def create(target, module_name):
-	my_module = module.Module(__file__, module_name, get_type())
+def configure(target, my_module):
 	my_module.add_src_file([
 	    'opencv/modules/core/src/stl.cpp',
 	    'opencv/modules/core/src/matrix_decomp.cpp',
@@ -117,7 +116,7 @@ def create(target, module_name):
 		destination_path="")
 	# generate dynamic file
 	generate_config_file(my_module)
-	return my_module
+	return True
 
 
 def generate_config_file(my_module):

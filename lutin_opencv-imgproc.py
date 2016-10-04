@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import lutin.module as module
+import lutin.debug as debug
 import lutin.tools as tools
 import os
 
@@ -18,8 +18,7 @@ def get_maintainer():
 def get_version():
 	return [3,1,0]
 
-def create(target, module_name):
-	my_module = module.Module(__file__, module_name, get_type())
+def configure(target, my_module):
 	my_module.add_src_file([
 	    'opencv/modules/imgproc/src/geometry.cpp',
 	    'opencv/modules/imgproc/src/connectedcomponents.cpp',
@@ -109,6 +108,6 @@ def create(target, module_name):
 	if "Android" in target.get_type():
 		my_module.add_flag('c++', "-DANDROID")
 	my_module.compile_version("C++", 2003)
-	return my_module
+	return True
 
 
